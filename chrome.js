@@ -9,11 +9,10 @@ async function getScreenshot(url) {
     });
 
     const page = await browser.newPage();
-
-    const res = await page.goto(url);
-    const filePath = await page.screenshot();
-    console.log(filePath);
-    return filePath;
+    await page.goto(url);
+    const file = await page.screenshot();
+    await browser.close();
+    return file;
 }
 
 module.exports = { getScreenshot };
