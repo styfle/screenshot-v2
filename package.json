@@ -1,0 +1,17 @@
+{
+  "name": "screenshot-v2",
+  "version": "1.0.0",
+  "description": "Take screenshot of website",
+  "main": "lambda.js",
+  "scripts": {
+    "dev": "node dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["screenshot", "service"],
+  "author": "styfle",
+  "repository": "github:styfle/screenshot-v2",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "chromeless": "^1.5.2"
+  }
+}

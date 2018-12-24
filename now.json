@@ -1,0 +1,8 @@
+{
+    "name": "screenshot-v2",	 
+    "alias": "screenshot-v2.now.sh",
+    "version": 2,
+    "builds": [
+        { "src": "lambda.js", "use": "@now/node", "config": { "maxLambdaSize": "50mb" }  }
+    ]
+}
