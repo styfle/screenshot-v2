@@ -37,4 +37,4 @@ async function lambda(req, res) {
     }
 };
 
-module.exports = { lambda };
+module.exports = lambda;
