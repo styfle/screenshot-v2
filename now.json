@@ -4,7 +4,7 @@
     "version": 2,
     "builds": [
         { "src": "favicon.ico", "use": "@now/static" },
-        { "src": "lambda.js", "use": "@now/node", "config": { "maxLambdaSize": "50mb", "bundle": false } }
+        { "src": "lambda.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
     ],
     "routes": [
         { "src": "/favicon.ico", "dest": "/favicon.ico" },
