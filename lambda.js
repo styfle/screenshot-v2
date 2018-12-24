@@ -1,6 +1,5 @@
 const { parse } = require('url');
 const { getScreenshot } = require('./chrome');
-const { getContent } = require('./file');
 const { isValidUrl } = require('./validator');
 
 async function lambda(req, res) {
@@ -22,11 +21,10 @@ async function lambda(req, res) {
                 res.setHeader('Content-Type', 'text/html');
                 res.end(`<h1>Bad Request</h1><p>The url <em>${url}</em> is not valid.</p>`);
             } else {
-                const filePath = await getScreenshot(url);
-                const content = await getContent(filePath);
+                const file = await getScreenshot(url);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'image/png');
-                res.end(content);
+                res.end(file);
             }
         } catch (e) {
             res.statusCode = 500;

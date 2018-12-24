@@ -1,10 +1,18 @@
-const { Chromeless } = require('chromeless');
+const chromium = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
 
 async function getScreenshot(url) {
-    const chromeless = new Chromeless();
-    const filePath = await chromeless.goto(url).screenshot();
+    const browser = await puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless,
+    });
+
+    const page = await browser.newPage();
+
+    const res = await page.goto(url);
+    const filePath = await page.screenshot();
     console.log(filePath);
-    await chromeless.end();
     return filePath;
 }
 

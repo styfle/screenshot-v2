@@ -3,9 +3,9 @@
     "alias": "screenshot-v2.now.sh",
     "version": 2,
     "builds": [
-        { "src": "index.js", "use": "@now/node-server", "config": { "maxLambdaSize": "50mb", "bundle": false }  }
+        { "src": "lambda.js", "use": "@now/node", "config": { "maxLambdaSize": "50mb", "bundle": false }  }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "/index.js" }
+        { "src": "/(.*)", "dest": "/lambda.js" }
     ]
 }
