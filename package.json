@@ -2,9 +2,9 @@
   "name": "screenshot-v2",
   "version": "1.0.0",
   "description": "Take screenshot of website",
-  "main": "lambda.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node dev.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["screenshot", "service"],
