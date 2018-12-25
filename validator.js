@@ -1,16 +1,20 @@
 const { URL } = require('url');
 
-function getUrlFromPath(pathname) {
-    let url = pathname.slice(1);
+function getInt(str) {
+    return /[0-9]+/.test(str) ? parseInt(str) : undefined;
+}
+
+function getUrlFromPath(str) {
+    let url = str.slice(1);
     if (!url.startsWith('http')) {
         return 'https://' + url;
     }
     return url;
 }
 
-function isValidUrl(href) {
+function isValidUrl(str) {
     try {
-        const url = new URL(href);
+        const url = new URL(str);
         return url.hostname.includes('.');
     } catch(e) {
         console.error(e.message);
@@ -18,4 +22,4 @@ function isValidUrl(href) {
     }
 }
 
-module.exports = { isValidUrl, getUrlFromPath };
+module.exports = { getInt, getUrlFromPath, isValidUrl };
