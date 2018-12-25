@@ -1,8 +1,16 @@
 const { URL } = require('url');
 
-function isValidUrl(str) {
+function getUrlFromPath(pathname) {
+    let url = pathname.slice(1);
+    if (!url.startsWith('http')) {
+        return 'https://' + url;
+    }
+    return url;
+}
+
+function isValidUrl(href) {
     try {
-        const url = new URL(str);
+        const url = new URL(href);
         return url.hostname.includes('.');
     } catch(e) {
         console.error(e.message);
@@ -10,4 +18,4 @@ function isValidUrl(str) {
     }
 }
 
-module.exports = { isValidUrl };
+module.exports = { isValidUrl, getUrlFromPath };

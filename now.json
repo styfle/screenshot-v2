@@ -3,11 +3,12 @@
     "alias": "screenshot-v2.now.sh",
     "version": 2,
     "builds": [
-        { "src": "favicon.ico", "use": "@now/static" },
+        { "src": "public/*", "use": "@now/static" },
         { "src": "screenshot.js", "use": "@now/node", "config": { "maxLambdaSize": "40mb" } }
     ],
     "routes": [
-        { "src": "/favicon.ico", "dest": "/favicon.ico" },
-        { "src": "/(.*)", "dest": "/screenshot.js" }
+        { "src": "/", "dest": "/public/index.html" },
+        { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+        { "src": "/(.+)", "dest": "/screenshot.js" }
     ]
 }
