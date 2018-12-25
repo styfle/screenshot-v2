@@ -9,7 +9,7 @@ const examples = [
     '/ceriously.com?type=jpeg&quality=75&fullPage=true',
 ];
 
-async function lambda(req, res) {
+module.exports = async function (req, res) {
     let { httpVersion, method, url } = req;
     console.log(`${httpVersion} ${method} ${url}`);
     let { pathname = '/', query = {} } = parse(url || '', true);
@@ -48,5 +48,3 @@ async function lambda(req, res) {
         }
     }
 };
-
-module.exports = lambda;
