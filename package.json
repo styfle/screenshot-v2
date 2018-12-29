@@ -4,8 +4,7 @@
   "description": "Take screenshot of website",
   "main": "dev.js",
   "scripts": {
-    "dev": "node dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node dev.js"
   },
   "keywords": [
     "screenshot",
@@ -13,7 +12,7 @@
   ],
   "author": "styfle",
   "repository": "github:styfle/screenshot-v2",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "chrome-aws-lambda": "1.11.1",
     "puppeteer-core": "1.11.0"
