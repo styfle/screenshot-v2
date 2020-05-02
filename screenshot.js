@@ -4,7 +4,11 @@ const { getScreenshot } = require('./chromium');
 const { getInt, getUrlFromPath, isValidUrl } = require('./validator');
 
 module.exports = async function (req, res) {
-    if (process.env.SCREENSHOT_AUTH_TOKEN && !timingSafeEqual(`Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`, req.headers.authorization)) {
+    Buffer.from(bufStr, 'utf8');
+    if (process.env.SCREENSHOT_AUTH_TOKEN && !timingSafeEqual(
+        Buffer.from(`Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`, 'utf8'),
+        Buffer.from(req.headers.authorization 'utf8'))
+    ) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/html');
         res.end('<h1>Auth error</h1><p>You need to send a correct Authorization: header</p>');
