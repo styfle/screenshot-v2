@@ -3,10 +3,18 @@ const { timingSafeEqual } = require('crypto');
 const { getScreenshot } = require('./chromium');
 const { getInt, getUrlFromPath, isValidUrl } = require('./validator');
 
+const compare = (a, b) => {
+    try {
+        return timingSafeEqual(Buffer.from(a || , "utf8"), Buffer.from(b, "utf8"));
+    } catch {
+        return false;
+    }
+};
+
 module.exports = async function (req, res) {
-    if (process.env.SCREENSHOT_AUTH_TOKEN && !timingSafeEqual(
-        Buffer.from(`Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`, 'utf8'),
-        Buffer.from(req.headers.authorization || '', 'utf8'))
+    if (process.env.SCREENSHOT_AUTH_TOKEN && !compare(
+        `Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`,
+        req.headers.authorization
     ) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/html');
