@@ -7,7 +7,7 @@ module.exports = async function (req, res) {
     Buffer.from(bufStr, 'utf8');
     if (process.env.SCREENSHOT_AUTH_TOKEN && !timingSafeEqual(
         Buffer.from(`Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`, 'utf8'),
-        Buffer.from(req.headers.authorization 'utf8'))
+        Buffer.from(req.headers.authorization, 'utf8'))
     ) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/html');
