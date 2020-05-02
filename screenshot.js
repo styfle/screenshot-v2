@@ -7,7 +7,7 @@ module.exports = async function (req, res) {
     if (process.env.SCREENSHOT_AUTH_TOKEN && !timingSafeEqual(`Bearer ${process.env.SCREENSHOT_AUTH_TOKEN}`, req.headers.authorization)) {
         res.statusCode = 403;
         res.setHeader('Content-Type', 'text/html');
-        res.end('<h1>Auth error</h1><p>You need to send the correct Authorization: header</p>');
+        res.end('<h1>Auth error</h1><p>You need to send a correct Authorization: header</p>');
         return;
     }
     try {
